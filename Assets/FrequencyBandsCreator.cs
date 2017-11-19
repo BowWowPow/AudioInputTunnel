@@ -1,49 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent (typeof (AudioSource))]
-public class AudioPeer : MonoBehaviour {
+[RequireComponent(typeof(AudioSource))]
+public class FrequencyBandsCreator : MonoBehaviour {
     AudioSource _audioSource;
-    public float freqOffset;
     public static float[] _samples = new float[512];
-    //public float[] test = new float[512];
     public static float[] _freqBand = new float[8];
-    public static float[] _bandBuffer = new float[8];
-    private float[] _bufferDecrease = new float[8];
+    public float bassOffset;
     public GameObject Wall;
-
-    void BandBuffer()
-    {
-        for (int i = 0; i < 8; i++)
-        {
-            if (_freqBand[i] > _bandBuffer[i])
-            {
-                _bandBuffer[i] = _freqBand[i];
-                _bufferDecrease[i] = 0.0005f;
-            }
-
-            if (_freqBand[i] < _bandBuffer[i])
-            {
-                _bandBuffer[i] -= _bufferDecrease[i];
-                _bufferDecrease[i] *= 1.2f;
-            }
-        }
-    }
-    // Use this for initialization
-    void Start()
-    {
+	// Use this for initialization
+	void Start () {
         _audioSource = GetComponent<AudioSource>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+	}
+	
+	// Update is called once per frame
+	void Update () {
         GetSpectrumAudioSource();
         MakeFreqBands();
-        BandBuffer();
         SpawnTunnels();
-    }
+	}
 
     void GetSpectrumAudioSource()
     {
@@ -89,13 +64,39 @@ public class AudioPeer : MonoBehaviour {
 
     void SpawnTunnels()
     {
-        for (int i = 0; i < _freqBand.Length; i++)
+        if (_freqBand[0] > bassOffset)
         {
-            if (_freqBand[i] > freqOffset)
-            {
-                MakeWall();
-            }
+            Debug.Log("Freq 0: " + _freqBand[0].ToString());
         }
+        if (_freqBand[1] > bassOffset)
+        {
+            Debug.Log("Freq 1: " + _freqBand[1].ToString());
+        }
+        if (_freqBand[2] > bassOffset)
+        {
+            Debug.Log("Freq 2: " + _freqBand[2].ToString());
+        }
+        if (_freqBand[3] > bassOffset)
+        {
+            Debug.Log("Freq 3: " + _freqBand[3].ToString());
+        }
+        if (_freqBand[4] > bassOffset)
+        {
+            Debug.Log("Freq 4: " + _freqBand[4].ToString());
+        }
+        if (_freqBand[5] > bassOffset)
+        {
+            Debug.Log("Freq 5: " + _freqBand[5].ToString());
+        }
+        if (_freqBand[6] > bassOffset)
+        {
+            Debug.Log("Freq 6: " + _freqBand[6].ToString());
+        }
+        if (_freqBand[7] > bassOffset)
+        {
+            Debug.Log("Freq 7: " + _freqBand[7].ToString());
+        }
+
     }
 
     public void MakeWall()

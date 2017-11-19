@@ -27,7 +27,7 @@ public class movement : MonoBehaviour {
 		if(t <= cd){
 			t += Time.deltaTime;
 		}else{
-			MakeWall();
+			//MakeWall();
 			t = 0;
 		}
 	}
@@ -37,6 +37,7 @@ public class movement : MonoBehaviour {
 		temp.transform.Rotate(new Vector3(this.transform.rotation.x,this.transform.rotation.y,transform.rotation.z));
         temp.gameObject.GetComponent<ModulateSize>().wake(os,ts,time);
 	}
+
 	public void MoveCam(){
 		// if(Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0 ){
 		// 	transform.Translate (moveSpeed * Time.deltaTime, moveSpeed * Time.deltaTime,0.0f);

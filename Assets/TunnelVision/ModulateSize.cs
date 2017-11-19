@@ -10,6 +10,11 @@ public class ModulateSize : MonoBehaviour
     public float time;
     // Use this for initialization
 
+    void Start()
+    {
+        
+    }
+
     public void wake(Vector3 os, Vector3 ts, float t)
     {
         originalScale = os;
