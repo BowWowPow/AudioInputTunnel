@@ -393,8 +393,8 @@ MonoBehaviour:
   os_y: 0
   os_z: 0
   originalScale: {x: 0, y: 0, z: 0}
-  targetScale: {x: 1, y: 1, z: 3.07}
-  time: 0.84
+  targetScale: {x: 0.5, y: 0.5, z: 2}
+  time: 0.27
 --- !u!114 &114639605446422502
 MonoBehaviour:
   m_ObjectHideFlags: 1
